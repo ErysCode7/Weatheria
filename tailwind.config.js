@@ -5,7 +5,16 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        transparent: "rgba(0,0,0,0.3)",
+      },
+      backgroundImage: {
+        leaves: "url(/images/leaves.jpeg)",
+        clouds: "url(/images/clouds.jpg)",
+        thunder: "url(/images/thunder.jpg)",
+      },
+    },
   },
   plugins: [],
 };
