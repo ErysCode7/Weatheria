@@ -1,16 +1,5 @@
 import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
-import {
-  CategoryScale,
-  Legend,
-  LinearScale,
-  LineElement,
-  PointElement,
-  Title,
-  Tooltip,
-} from "chart.js";
-import Chart from "chart.js/auto";
 import React, { useEffect } from "react";
-// import { Line } from "react-chartjs-2";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import {
@@ -19,16 +8,6 @@ import {
   query,
 } from "../../redux/slices/locationSlice";
 import Forecast from "../Forecast/Forecast";
-
-Chart.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend
-);
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -41,44 +20,14 @@ const Main = () => {
     dispatch(getLongtitude(weather?.coord?.lon));
   }, [weather]);
 
-  // const temperature = [];
-  // const timeFrame = [];
-
-  // const temperatureData = forecast?.list?.slice(0, 7).map((temp) => {
-  //   return Math.ceil(Number(temp?.main?.temp) - 273);
-  // });
-
-  // const timeFrameData = forecast?.list?.slice(0, 7).map((time) => {
-  //   return time?.dt_txt;
-  // });
-
-  // const data = {
-  //   labels: timeFrameData,
-  //   datasets: [
-  //     {
-  //       label: "Average Temperature",
-  //       data: temperatureData,
-  //       fill: false,
-  //       backgroundColor: "#0071bd",
-  //       borderColor: "#0071bd",
-  //     },
-  //   ],
-  // };
-
-  // const options = {
-  //   responsive: true,
-  //   maintainAspectRatio: false,
-  // };
-
-  // console.log(forecast);
-
-  const bg = useColorModeValue("#f2f2f2", "#121212");
+  const bg = useColorModeValue("#121212", "#121212");
+  const color = useColorModeValue("#f2f2f2", "#f2f2f2");
 
   return (
     <>
       {weather && (
         <main className="mt-5">
-          <Box bg={bg}>
+          <Box bg={bg} color={color}>
             <div className="bg-[#21212] w-4/5 m-auto p-5">
               <Heading
                 as="h2"
@@ -119,15 +68,7 @@ const Main = () => {
               </Text>
             </div>
           </Box>
-
           <Forecast />
-          {/* <div className="md:w-4/5 m-auto">
-            <Line
-              data={data}
-              datasetIdKey="id"
-              className="bg-transparent"
-            />
-          </div> */}
         </main>
       )}
     </>
