@@ -1,3 +1,4 @@
+import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
 import {
   CategoryScale,
   Legend,
@@ -71,20 +72,37 @@ const Main = () => {
 
   // console.log(forecast);
 
+  const bg = useColorModeValue("#f2f2f2", "#121212");
+
   return (
     <>
       {weather && (
         <main className="mt-5">
-          <div>
-            <div className="bg-[#21212] w-4/5 m-auto p-5 text-white">
+          <Box bg={bg}>
+            <div className="bg-[#21212] w-4/5 m-auto p-5">
+              <Heading
+                as="h2"
+                className="font-bold"
+                fontSize={{ base: "25px", md: "35px", lg: "40px" }}
+              >
+                Find out the current weather in each city in the world!
+              </Heading>
+
               <img
                 className="w-48"
                 src={`https://openweathermap.org/img/wn/${weather?.weather[0].icon}@2x.png`}
                 alt="/"
               />
-              <h1 className="text-5xl">{weather?.name}</h1>
-              <h2>{weather?.sys?.country}</h2>
-              <p>
+
+              <Heading
+                as="h1"
+                className="font-bold mb-4"
+                fontSize={{ base: "28px", md: "38px", lg: "48px" }}
+              >
+                {weather?.name}, {weather?.sys?.country}
+              </Heading>
+
+              <Text>
                 The weather condition in {weather?.name},{" "}
                 {weather?.sys?.country} is described as {""}
                 {weather?.weather?.map((weather) => (
@@ -92,15 +110,16 @@ const Main = () => {
                     {weather?.description}
                   </span>
                 ))}
-                <p className="mb-8 text-justify">
+                <Text className="mb-8 text-justify">
                   <span className="font-semibold">
                     {Math.ceil(Number(weather?.main?.temp - 273))} °C and a
                     humidity of {weather?.main?.humidity}%.
                   </span>
-                </p>
-              </p>
+                </Text>
+              </Text>
             </div>
-          </div>
+          </Box>
+
           <Forecast />
           {/* <div className="md:w-4/5 m-auto">
             <Line

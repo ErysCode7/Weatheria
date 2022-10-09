@@ -7,7 +7,6 @@ const Forecast = () => {
   const lat = useSelector(latitude);
   const lon = useSelector(longtitude);
   const { data: weekForeCast } = useGetSixDayForecastQuery({ lat, lon });
-  console.log(weekForeCast);
 
   const DAYS = [
     "MONDAY",
@@ -23,9 +22,6 @@ const Forecast = () => {
   const forecastDays = DAYS.slice(dayInWeek, DAYS.length).concat(
     DAYS.slice(0, dayInWeek)
   );
-
-  console.log(forecastDays);
-
 
   return (
     <>

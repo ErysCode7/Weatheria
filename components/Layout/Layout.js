@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
           />
           <title>Weatheria</title>
         </Head>
-        <div className="h-full w-full bg-[#121212]">{children}</div>
+        <div>{children}</div>
       </>
     </Provider>
   );
