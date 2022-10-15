@@ -15,3 +15,9 @@ body {
   -webkit-text-fill-color: transparent;
   background-color: #0b0c1c;
 }
+
+.bg {
+  background: linear-gradient(45deg, #04619f, #000000);
+  color: #060e1f;
+  background: linear-gradient(45deg, #f8f8f8, #333);
+}

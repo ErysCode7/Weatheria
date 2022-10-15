@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="w-full h-20 md:h-28">
+      <header className="w-full h-20 md:h-28 shadow-sm">
         <Flex className="items-center justify-between gap-5 w-[90%] md:w-[95%] m-auto h-full">
           <div className="hidden md:block">
             <Flex alignItems="center" gap={1} className="h-full">
