@@ -25,10 +25,12 @@ const Header = () => {
 
   const [search, setSearch] = useState("Pittsburgh");
 
+  //dispatch the action on mount
   useEffect(() => {
     dispatch(getQueryData(search));
   }, []);
 
+  //handle search
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(getQueryData(search));
