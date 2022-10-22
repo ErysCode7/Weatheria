@@ -58,7 +58,7 @@ const CurrentWeather = () => {
 
   return (
     <>
-      <Stack className="w-[90%] m-auto p-5">
+      <Stack>
         <Box
           borderWidth="1px"
           borderRadius="lg"

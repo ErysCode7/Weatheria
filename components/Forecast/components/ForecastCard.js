@@ -1,6 +1,9 @@
+import { Box, Heading, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 
 const ForecastCard = ({ forecastDays, index, forecast }) => {
+  const boxBackgroundColor = useColorModeValue("#ffffff", "#222222");
+
   let imageURL;
 
   if (
@@ -56,13 +59,25 @@ const ForecastCard = ({ forecastDays, index, forecast }) => {
   console.log(forecast?.weather);
 
   return (
-    <section>
-      <h2 className="text-2xl">{forecastDays[index]}</h2>
-      <h3 className="text-2xl">
-        Minimun Temperature ranges: {forecast.app_min_temp} °C to{" "}
-        {forecast.app_max_temp} °C
-      </h3>
-    </section>
+    <Box
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      bg={boxBackgroundColor}
+      className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px] h-[300px] py-2"
+    >
+      <Text className="text-center border-b border-[#999] w-4/5 m-auto pb-2">
+        {forecastDays[index]}
+      </Text>
+      <Image src={imageURL} alt={`Weather Icon`} className="w-full p-4" />
+      <Box p="6">
+        <Heading as="h3" size="xl" mb={2}></Heading>
+        <Text>
+          Temperature ranges: {forecast.app_min_temp} °C to{" "}
+          {forecast.app_max_temp} °C
+        </Text>
+      </Box>
+    </Box>
   );
 };
 

@@ -24,19 +24,17 @@ const Forecast = () => {
     DAYS.slice(0, dayInWeek)
   );
 
-//   const date = weekForeCast?.data?.slice(0, 7).map((forecast) => {
-//     return forecast?.datetime;
-//   });
+  //   const date = weekForeCast?.data?.slice(0, 7).map((forecast) => {
+  //     return forecast?.datetime;
+  //   });
 
-//   const minTemp = weekForeCast?.data?.slice(0, 7).map((forecast) => {
-//     return forecast?.app_min_temp;
-//   });
+  //   const minTemp = weekForeCast?.data?.slice(0, 7).map((forecast) => {
+  //     return forecast?.app_min_temp;
+  //   });
 
-//   const maxTemp = weekForeCast?.data?.slice(0, 7).map((forecast) => {
-//     return forecast?.app_max_temp;
-//   });
-
-
+  //   const maxTemp = weekForeCast?.data?.slice(0, 7).map((forecast) => {
+  //     return forecast?.app_max_temp;
+  //   });
 
   return (
     <>

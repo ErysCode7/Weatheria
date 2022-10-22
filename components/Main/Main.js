@@ -1,4 +1,3 @@
-import { Flex } from "@chakra-ui/react";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
@@ -24,10 +23,10 @@ const Main = () => {
   return (
     <>
       {weather && (
-        <Flex className="mt-5" alignItems="center" wrap="" gap="1">
+        <main className="mt-5 pt-5 md:flex w-[90%] m-auto gap-3">
           <CurrentWeather />
           <Forecast />
-        </Flex>
+        </main>
       )}
     </>
   );
