@@ -1,5 +1,6 @@
 import {
   Avatar,
+  Box,
   Button,
   Flex,
   Heading,
@@ -8,6 +9,7 @@ import {
   InputLeftElement,
   Tooltip,
   useColorMode,
+  useColorModeValue,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
@@ -39,9 +41,11 @@ const Header = () => {
 
   const { data: weather } = useGetWeatherQuery(search);
 
+  const bg = useColorModeValue("#ffffff", "#222");
+
   return (
     <>
-      <header className="w-full h-20 shadow-sm">
+      <Box className="w-full h-20 shadow-sm" bg={bg}>
         <Flex className="items-center justify-between gap-5 w-[90%] md:w-[95%] m-auto h-full">
           <div className="hidden md:block">
             <Flex alignItems="center" gap={1} className="h-full">
@@ -82,7 +86,7 @@ const Header = () => {
             </div>
           </Flex>
         </Flex>
-      </header>
+      </Box>
     </>
   );
 };

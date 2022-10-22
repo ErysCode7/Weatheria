@@ -5,7 +5,7 @@ export const globalStyles = {
   styles: {
     global: (props) => ({
       body: {
-        bg: mode("secondaryGray.300", "navy.900")(props),
+        bg: mode("#e5e7eb", "navy.900")(props),
       },
     }),
   },

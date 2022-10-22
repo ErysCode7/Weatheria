@@ -24,7 +24,6 @@ const Main = () => {
       {weather && (
         <main className="mt-5">
           <CurrentWeather />
-
           {/* <Forecast /> */}
         </main>
       )}

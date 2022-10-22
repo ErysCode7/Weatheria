@@ -11,6 +11,6 @@ const Theme = {
 };
 
 // 3. extend the theme
-const theme = extendTheme(Theme);
+const theme = extendTheme(globalStyles);
 
 export default theme;
