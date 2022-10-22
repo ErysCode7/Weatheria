@@ -17,8 +17,6 @@ const CurrentWeather = () => {
 
   const boxBackgroundColor = useColorModeValue("#ffffff", "#222");
 
-  console.log(weather);
-
   //01d = clear sky
   //02n = few clouds
   //03d = scattered clouds
@@ -26,10 +24,36 @@ const CurrentWeather = () => {
   //10n = light rain || moderate || heavy rain
   //11d = thundercast clouds
   //13d = winter
-  
   //50n = mist
 
-  const weatherIcons = [];
+  let imageURL;
+
+  if (weather?.weather[0]?.description === "clear sky") {
+    imageURL = `./images/clear-sky.png`;
+  } else if (weather?.weather[0]?.description === "few clouds") {
+    imageURL = `./images/few-clouds.png`;
+  } else if (weather?.weather[0]?.description === "scattered clouds") {
+    imageURL = `./images/scattered-clouds.png`;
+  } else if (
+    weather?.weather[0]?.description === "overcast clouds" ||
+    weather?.weather[0]?.description === "broken clouds"
+  ) {
+    imageURL = `./images/overcast-clouds.png`;
+  } else if (
+    weather?.weather[0]?.description === "light rain" ||
+    weather?.weather[0]?.description === "moderate rain" ||
+    weather?.weather[0]?.description === "heavy rain"
+  ) {
+    imageURL = `./images/rain-clouds.png`;
+  } else if (weather?.weather[0]?.description === "thundercast clouds") {
+    imageURL = `./images/thundercast-clouds.png`;
+  } else if (weather?.weather[0]?.description === "winter") {
+    imageURL = `./images/winter-clouds.png`;
+  } else if (weather?.weather[0]?.description === "mist") {
+    imageURL = `./images/mist.png`;
+  } else {
+    imageURL = `./images/clouds.png`;
+  }
 
   return (
     <>
@@ -46,8 +70,8 @@ const CurrentWeather = () => {
         >
           <Image
             // src={`/images/sun.png`}
-            src={`https://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
-            alt=""
+            src={imageURL}
+            alt={`Weather Icon`}
             className="w-full"
           />
           <Box p="6">
