@@ -22,12 +22,14 @@ const CurrentWeather = () => {
   //01d = clear sky
   //02n = few clouds
   //03d = scattered clouds
-  //04n = overcast clouds
-  //04d = broken clouds
-  //10n = light rain, moderate to heavy rain
+  //04n = overcast clouds || broken clouds
+  //10n = light rain || moderate || heavy rain
   //11d = thundercast clouds
   //13d = winter
+  
   //50n = mist
+
+  const weatherIcons = [];
 
   return (
     <>
@@ -44,7 +46,7 @@ const CurrentWeather = () => {
         >
           <Image
             // src={`/images/sun.png`}
-            src={`https://openweathermap.org/img/wn/13d@2x.png`}
+            src={`https://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
             alt=""
             className="w-full"
           />
