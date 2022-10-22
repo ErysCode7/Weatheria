@@ -6,26 +6,24 @@ import {
   Input,
   InputGroup,
   InputLeftElement,
+  Tooltip,
   useColorMode,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsSun } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
-import { useDispatch, useSelector } from "react-redux";
-import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
-import {
-  getQueryData,
-  latitude,
-  longtitude,
-} from "../../redux/slices/locationSlice";
+import { ImLocation2 } from "react-icons/im";
+import { useDispatch } from "react-redux";
+import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
+import { getQueryData } from "../../redux/slices/locationSlice";
 
 const Header = () => {
   const dispatch = useDispatch();
 
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const [search, setSearch] = useState("Taguig");
+  const [search, setSearch] = useState("Pittsburgh");
 
   useEffect(() => {
     dispatch(getQueryData(search));
@@ -37,35 +35,27 @@ const Header = () => {
     setSearch("");
   };
 
-  const lat = useSelector(latitude);
-  const lon = useSelector(longtitude);
-  const { data: weekForeCast } = useGetSixDayForecastQuery({ lat, lon });
+  const { data: weather } = useGetWeatherQuery(search);
 
   return (
     <>
-      <header className="w-full h-20 md:h-28 shadow-sm">
+      <header className="w-full h-20 shadow-sm">
         <Flex className="items-center justify-between gap-5 w-[90%] md:w-[95%] m-auto h-full">
           <div className="hidden md:block">
             <Flex alignItems="center" gap={1} className="h-full">
+              <ImLocation2 size="20px" />
               <Heading
-                as="h1"
-                fontSize={{ base: "24px", md: "50px" }}
+                as="h3"
+                fontSize={{ base: "16px", md: "27px" }}
                 noOfLines={1}
               >
-                Weatheria
+                {weather?.name
+                  ? `${weather?.name}, ${weather?.sys?.country}`
+                  : "Weatheria"}
               </Heading>
-              {/* <ImLocation2 size="20px" />
-            <Heading
-              as="h3"
-              fontSize={{ base: "16px", md: "27px" }}
-              noOfLines={1}
-            >
-              Weatheria, USA
-            </Heading> */}
             </Flex>
           </div>
-
-          <form onSubmit={handleSubmit} className="w-full">
+          <form onSubmit={handleSubmit} className="w-full md:w-[50%]">
             <InputGroup>
               <InputLeftElement
                 pointerEvents="none"
@@ -84,7 +74,9 @@ const Header = () => {
               {colorMode === "light" ? <FaMoon /> : <BsSun />}
             </Button>
             <div className="hidden md:block">
-              <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+              <Tooltip label="Hello, Greetings!" placement="bottom">
+                <Avatar name="Dan Abrahmov" src="https://bit.ly/dan-abramov" />
+              </Tooltip>
             </div>
           </Flex>
         </Flex>
