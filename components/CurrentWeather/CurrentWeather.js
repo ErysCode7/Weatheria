@@ -50,22 +50,21 @@ const CurrentWeather = () => {
   } else if (weather?.weather[0]?.description === "winter") {
     imageURL = `./images/winter-clouds.png`;
   } else if (weather?.weather[0]?.description === "mist") {
-    imageURL = `./images/mist.png`;
+    // imageURL = `./images/mist.png`;
+    imageURL = `./images/winter-clouds.png`;
   } else {
     imageURL = `./images/clouds.png`;
   }
 
-  console.log(weather);
-
   return (
     <>
-      <Stack className="w-[85%] m-auto p-5">
+      <Stack className="w-[90%] m-auto p-5">
         <Box
-          maxW="sm"
           borderWidth="1px"
           borderRadius="lg"
           overflow="hidden"
           bg={boxBackgroundColor}
+          className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px]"
         >
           <Image src={imageURL} alt={`Weather Icon`} className="w-full p-4" />
           <Box p="6">
