@@ -7,7 +7,6 @@ import {
   query,
 } from "../../redux/slices/locationSlice";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
-import Forecast from "../Forecast/Forecast";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ const Main = () => {
         <main className="mt-5">
           <CurrentWeather />
 
-          <Forecast />
+          {/* <Forecast /> */}
         </main>
       )}
     </>
