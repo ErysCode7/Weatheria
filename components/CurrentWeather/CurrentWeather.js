@@ -19,9 +19,19 @@ const CurrentWeather = () => {
 
   console.log(weather);
 
+  //01d = clear sky
+  //02n = few clouds
+  //03d = scattered clouds
+  //04n = overcast clouds
+  //04d = broken clouds
+  //10n = light rain, moderate to heavy rain
+  //11d = thundercast clouds
+  //13d = winter
+  //50n = mist
+
   return (
     <>
-      <Stack className=" w-4/5 m-auto p-5">
+      <Stack className="w-4/5 m-auto p-5">
         <Heading as="h1" size="2xl" pb={3} noOfLines={1}>
           Today's Overview
         </Heading>
@@ -34,7 +44,7 @@ const CurrentWeather = () => {
         >
           <Image
             // src={`/images/sun.png`}
-            src={`https://openweathermap.org/img/wn/${weather?.weather[0]?.icon}@2x.png`}
+            src={`https://openweathermap.org/img/wn/13d@2x.png`}
             alt=""
             className="w-full"
           />
