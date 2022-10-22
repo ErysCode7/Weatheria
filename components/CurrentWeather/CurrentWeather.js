@@ -15,7 +15,7 @@ const CurrentWeather = () => {
   const queryData = useSelector(query);
   const { data: weather } = useGetWeatherQuery(queryData);
 
-  const boxBackgroundColor = useColorModeValue("#ffffff", "#222");
+  const boxBackgroundColor = useColorModeValue("#ffffff", "#222222");
 
   //01d = clear sky
   //02n = few clouds
@@ -38,7 +38,7 @@ const CurrentWeather = () => {
     weather?.weather[0]?.description === "overcast clouds" ||
     weather?.weather[0]?.description === "broken clouds"
   ) {
-    imageURL = `./images/overcast-clouds.png`;
+    imageURL = `./images/scattered-clouds.png`;
   } else if (
     weather?.weather[0]?.description === "light rain" ||
     weather?.weather[0]?.description === "moderate rain" ||
@@ -55,12 +55,11 @@ const CurrentWeather = () => {
     imageURL = `./images/clouds.png`;
   }
 
+  console.log(weather);
+
   return (
     <>
-      <Stack className="w-4/5 m-auto p-5">
-        <Heading as="h1" size="2xl" pb={3} noOfLines={1}>
-          Today's Overview
-        </Heading>
+      <Stack className="w-[85%] m-auto p-5">
         <Box
           maxW="sm"
           borderWidth="1px"
@@ -68,12 +67,7 @@ const CurrentWeather = () => {
           overflow="hidden"
           bg={boxBackgroundColor}
         >
-          <Image
-            // src={`/images/sun.png`}
-            src={imageURL}
-            alt={`Weather Icon`}
-            className="w-full"
-          />
+          <Image src={imageURL} alt={`Weather Icon`} className="w-full p-4" />
           <Box p="6">
             <Heading as="h3" size="xl" mb={2}>
               {weather?.name}, {weather?.sys?.country}
