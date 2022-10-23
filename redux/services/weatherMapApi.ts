@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
-const createRequest = (url) => ({ url });
+const createRequest = (url: string) => ({ url });
 
 //Define a service using a base URL and expected endpoints
 export const weatherApi = createApi({
@@ -24,4 +24,4 @@ export const weatherApi = createApi({
   }),
 });
 
-export const { useGetForecastQuery, useGetWeatherQuery  } = weatherApi;
+export const { useGetForecastQuery, useGetWeatherQuery } = weatherApi;

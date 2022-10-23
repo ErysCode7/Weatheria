@@ -5,7 +5,7 @@ const weatherBitHeaders = {
   "X-RapidAPI-Host": process.env.NEXT_PUBLIC_WEATHER_BIT_HEADERS,
 };
 
-const createRequest = (url) => ({ url, headers: weatherBitHeaders });
+const createRequest = (url: string) => ({ url, headers: weatherBitHeaders });
 
 //Define a service using a base URL and expected endpoints
 export const weatherBitApi = createApi({

@@ -9,9 +9,9 @@ import {
   InputLeftElement,
   Tooltip,
   useColorMode,
-  useColorModeValue
+  useColorModeValue,
 } from "@chakra-ui/react";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsSun } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
