@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
 import { latitude, longtitude } from "../../redux/slices/locationSlice";
+
 import ForecastCard from "./components/ForecastCard";
 
 const Forecast = () => {

@@ -20,6 +20,7 @@ import { useDispatch } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { getQueryData } from "../../redux/slices/locationSlice";
 
+
 const Header = () => {
   const dispatch = useDispatch();
 

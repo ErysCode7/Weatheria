@@ -1,6 +1,36 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initialState = {
+type TypeLocation = {
+  query: string;
+  location: {
+    lat: string;
+    lon: string;
+  };
+};
+
+type TypeQuery = {
+  location: {
+    query: string;
+  };
+};
+
+type TypeLatitude = {
+  location: {
+    location: {
+      lat: string;
+    };
+  };
+};
+
+type TypeLongtitude = {
+  location: {
+    location: {
+      lon: string;
+    };
+  };
+};
+
+const initialState: TypeLocation = {
   query: "",
   location: {
     lat: "",
@@ -27,8 +57,9 @@ export const locationSlice = createSlice({
 export const { getQueryData, getLatitude, getLongtitude } =
   locationSlice.actions;
 
-export const query = (state) => state.location.query;
-export const latitude = (state) => state.location.location.lat;
-export const longtitude = (state) => state.location.location.lon;
+export const query = (state: TypeQuery) => state.location.query;
+export const latitude = (state: TypeLatitude) => state.location.location.lat;
+export const longtitude = (state: TypeLongtitude) =>
+  state.location.location.lon;
 
 export default locationSlice.reducer;

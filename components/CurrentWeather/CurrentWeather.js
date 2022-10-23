@@ -9,6 +9,8 @@ import {
 import { useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
+query
+
 
 const CurrentWeather = () => {
   const queryData = useSelector(query);
