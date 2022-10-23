@@ -9,10 +9,10 @@ import {
 import { useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
-query
+import { WeatherElement } from "../../utils/types/weatherMap";
+import { NextPage } from "next";
 
-
-const CurrentWeather = () => {
+const CurrentWeather: NextPage = () => {
   const queryData = useSelector(query);
   const { data: weather } = useGetWeatherQuery(queryData);
 
@@ -57,6 +57,8 @@ const CurrentWeather = () => {
     imageURL = `./images/clouds.png`;
   }
 
+  console.log(weather);
+
   return (
     <>
       <Stack>
@@ -75,8 +77,8 @@ const CurrentWeather = () => {
             <Text>
               The weather condition in {weather?.name}, {weather?.sys?.country}{" "}
               is described as {""}
-              {weather?.weather?.map((weather) => (
-                <span className="font-bold" key={weather?.description}>
+              {weather?.weather?.map((weather: WeatherElement) => (
+                <span className="font-bold" key={weather?.id}>
                   {weather?.description}
                 </span>
               ))}

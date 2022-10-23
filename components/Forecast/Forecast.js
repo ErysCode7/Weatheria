@@ -36,8 +36,6 @@ const Forecast = () => {
   //     return forecast?.app_max_temp;
   //   });
 
-  console.log(weekForeCast);
-
   return (
     <>
       {weekForeCast && (
