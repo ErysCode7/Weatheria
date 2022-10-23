@@ -1,5 +1,4 @@
 import { Box, Heading, Image, Text, useColorModeValue } from "@chakra-ui/react";
-import React from "react";
 
 const ForecastCard = ({ forecastDays, index, forecast }) => {
   const boxBackgroundColor = useColorModeValue("#ffffff", "#222222");
@@ -55,8 +54,6 @@ const ForecastCard = ({ forecastDays, index, forecast }) => {
   } else {
     imageURL = `./images/clouds.png`;
   }
-
-  console.log(forecast?.weather);
 
   return (
     <Box

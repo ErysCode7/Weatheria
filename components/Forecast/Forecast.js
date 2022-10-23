@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
 import { latitude, longtitude } from "../../redux/slices/locationSlice";
@@ -35,6 +34,8 @@ const Forecast = () => {
   //   const maxTemp = weekForeCast?.data?.slice(0, 7).map((forecast) => {
   //     return forecast?.app_max_temp;
   //   });
+
+  console.log(weekForeCast);
 
   return (
     <>
