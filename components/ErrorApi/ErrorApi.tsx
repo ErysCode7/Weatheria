@@ -7,8 +7,8 @@ const ErrorApi: NextPage = () => {
 
   return (
     <>
-      <div className="flex flex-col items-center mt-10 md:mt-0">
-        <div className=" relative h-[400px] w-full md:h-[350px] md:w-[500px] ">
+      <div className="flex flex-col items-center mt-10 md:mt-0 ">
+        <div className=" relative h-[400px] w-full md:h-[350px] md:w-[400px] lg:w-[500px] ">
           <Image src="/svg/504.svg" alt="" layout="fill" objectFit="contain" />
         </div>
         <Text

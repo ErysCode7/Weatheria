@@ -66,9 +66,13 @@ const CurrentWeather: NextPage = () => {
         <Box
           overflow="hidden"
           bg={boxBackgroundColor}
-          className="rounded w-[250px] sm:w-[300px] hover:border-sky-500 hover:border-[2px] hover:scale-[102%] transition-all duration-300 "
+          className="rounded w-full md:w-[300px] h-[420px] md:h-full hover:border-sky-500 hover:border-[2px] hover:scale-[102%] transition-all duration-300 "
         >
-          <Image src={imageURL} alt={`Weather Icon`} className="w-full p-4" />
+          <Image
+            src={imageURL}
+            alt={`Weather Icon`}
+            className="w-full p-4 h-[250px] md:h-auto object-contain"
+          />
           <Box p="6">
             <Heading as="h3" size="xl" mb={2}>
               {weather?.name}, {weather?.sys?.country}
