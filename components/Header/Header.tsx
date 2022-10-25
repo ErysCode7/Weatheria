@@ -11,7 +11,8 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { NextPage } from "next";
+import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { BsSun } from "react-icons/bs";
 import { FaMoon } from "react-icons/fa";
@@ -20,8 +21,7 @@ import { useDispatch } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { getQueryData } from "../../redux/slices/locationSlice";
 
-
-const Header = () => {
+const Header: NextPage = () => {
   const dispatch = useDispatch();
 
   const { colorMode, toggleColorMode } = useColorMode();
@@ -34,7 +34,7 @@ const Header = () => {
   }, []);
 
   //handle search
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     dispatch(getQueryData(search));
     setSearch("");

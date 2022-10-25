@@ -1,8 +1,14 @@
+import { NextPage } from "next";
 import Head from "next/head";
+import { ReactNode } from "react";
 import { Provider } from "react-redux";
 import { store } from "../../redux/app/store";
 
-const Layout = ({ children }) => {
+type Props = {
+  children?: ReactNode;
+};
+
+const Layout: NextPage<Props> = ({ children }) => {
   return (
     <Provider store={store}>
       <>
