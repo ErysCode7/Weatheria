@@ -6,11 +6,11 @@ import {
   Text,
   useColorModeValue,
 } from "@chakra-ui/react";
+import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
 import { WeatherElement } from "../../utils/types/weatherMap";
-import { NextPage } from "next";
 
 const CurrentWeather: NextPage = () => {
   const queryData = useSelector(query);
@@ -43,7 +43,8 @@ const CurrentWeather: NextPage = () => {
   } else if (
     weather?.weather[0]?.description === "light rain" ||
     weather?.weather[0]?.description === "moderate rain" ||
-    weather?.weather[0]?.description === "heavy rain"
+    weather?.weather[0]?.description === "heavy rain" ||
+    weather?.weather[0]?.description === "heavy intensity rain"
   ) {
     imageURL = `./images/rain-clouds.png`;
   } else if (weather?.weather[0]?.description === "thundercast clouds") {

@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
 import { latitude, longtitude } from "../../redux/slices/locationSlice";
-
 import ForecastCard from "./components/ForecastCard";
 
 const Forecast = () => {
@@ -41,7 +40,7 @@ const Forecast = () => {
       {weekForeCast && (
         <>
           {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
-          {weekForeCast?.data?.slice(0, 7).map((forecast, index) => (
+          {weekForeCast?.data?.slice(0, 7).map((forecast, index: number) => (
             <ForecastCard
               forecast={forecast}
               index={index}
