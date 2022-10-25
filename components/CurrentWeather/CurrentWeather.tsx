@@ -64,18 +64,16 @@ const CurrentWeather: NextPage = () => {
     <>
       <Stack>
         <Box
-          borderWidth="1px"
-          borderRadius="lg"
           overflow="hidden"
           bg={boxBackgroundColor}
-          className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px]"
+          className="rounded w-[250px] sm:w-[300px] hover:border-sky-500 hover:border-[2px] hover:scale-[102%] transition-all duration-300 "
         >
           <Image src={imageURL} alt={`Weather Icon`} className="w-full p-4" />
           <Box p="6">
             <Heading as="h3" size="xl" mb={2}>
               {weather?.name}, {weather?.sys?.country}
             </Heading>
-            <Text>
+            <Text className="text-sm md:text-[15px] md:leading-6">
               The weather condition in {weather?.name}, {weather?.sys?.country}{" "}
               is described as {""}
               {weather?.weather?.map((weather: WeatherElement) => (
@@ -83,7 +81,7 @@ const CurrentWeather: NextPage = () => {
                   {weather?.description}
                 </span>
               ))}
-              <Text className="mb-8 text-justify">
+              <Text className="pb-8 text-justify">
                 <span className="font-semibold">
                   {Math.ceil(Number(weather?.main?.temp - 273))} °C and a
                   humidity of {weather?.main?.humidity}%.

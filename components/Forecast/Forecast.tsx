@@ -1,12 +1,17 @@
+import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
 import { latitude, longtitude } from "../../redux/slices/locationSlice";
+import ErrorApi from "../ErrorApi/ErrorApi";
 import ForecastCard from "./components/ForecastCard";
 
-const Forecast = () => {
+const Forecast: NextPage = () => {
   const lat = useSelector(latitude);
   const lon = useSelector(longtitude);
-  const { data: weekForeCast } = useGetSixDayForecastQuery({ lat, lon });
+  const { data: weekForeCast, isError } = useGetSixDayForecastQuery({
+    lat,
+    lon,
+  });
 
   const DAYS = [
     "SUNDAY",
@@ -34,6 +39,8 @@ const Forecast = () => {
   //   const maxTemp = weekForeCast?.data?.slice(0, 7).map((forecast) => {
   //     return forecast?.app_max_temp;
   //   });
+
+  if (isError) return <ErrorApi />;
 
   return (
     <>
