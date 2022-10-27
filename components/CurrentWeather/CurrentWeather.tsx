@@ -10,7 +10,7 @@ import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
-import { WeatherElement } from "../../utils/types/weatherMap";
+import { WeatherElement } from "../../utils/interfaces/weatherMap";
 
 const CurrentWeather: NextPage = () => {
   const queryData = useSelector(query);
@@ -29,10 +29,11 @@ const CurrentWeather: NextPage = () => {
 
   let imageURL;
 
-  if (weather?.weather[0]?.description === "clear sky") {
+  if (
+    weather?.weather[0]?.description === "clear sky" ||
+    weather?.weather[0]?.description === "few clouds"
+  ) {
     imageURL = `./images/clear-sky.png`;
-  } else if (weather?.weather[0]?.description === "few clouds") {
-    imageURL = `./images/few-clouds.png`;
   } else if (weather?.weather[0]?.description === "scattered clouds") {
     imageURL = `./images/scattered-clouds.png`;
   } else if (

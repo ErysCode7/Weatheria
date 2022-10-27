@@ -2,8 +2,11 @@ import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
 import { latitude, longtitude } from "../../redux/slices/locationSlice";
+import { Datum } from "../../utils/interfaces/weatherBit";
 import ErrorApi from "../ErrorApi/ErrorApi";
 import ForecastCard from "./components/ForecastCard";
+
+export type TypeDate = string[];
 
 const Forecast: NextPage = () => {
   const lat = useSelector(latitude);
@@ -13,7 +16,7 @@ const Forecast: NextPage = () => {
     lon,
   });
 
-  const DAYS = [
+  const DAYS: TypeDate = [
     "SUNDAY",
     "MONDAY",
     "TUESDAY",
@@ -40,6 +43,8 @@ const Forecast: NextPage = () => {
   //     return forecast?.app_max_temp;
   //   });
 
+  console.log(weekForeCast);
+
   if (isError) return <ErrorApi />;
 
   return (
@@ -47,13 +52,16 @@ const Forecast: NextPage = () => {
       {weekForeCast && (
         <>
           {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
-          {weekForeCast?.data?.slice(0, 7).map((forecast, index: number) => (
-            <ForecastCard
-              forecast={forecast}
-              index={index}
-              forecastDays={forecastDays}
-            />
-          ))}
+          {weekForeCast?.data
+            ?.slice(0, 7)
+            .map((forecast: Datum, index: number) => (
+              <ForecastCard
+                key={index}
+                forecast={forecast}
+                index={index}
+                forecastDays={forecastDays}
+              />
+            ))}
         </>
       )}
     </>

@@ -1,20 +1,26 @@
-import { Box, Heading, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { NextPage } from "next";
+import { Datum } from "../../../utils/interfaces/weatherBit";
+import { TypeDate } from "../Forecast";
 
-const ForecastCard = ({ forecastDays, index, forecast }) => {
+type Props = {
+  forecast: Datum;
+  index: number;
+  forecastDays: TypeDate;
+};
+
+const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
   const boxBackgroundColor = useColorModeValue("#ffffff", "#222222");
 
   let imageURL;
 
   if (
-    forecast?.weather?.description === "clear sky" ||
-    forecast?.weather?.description === "Clear Sky"
+    // forecast?.weather?.description === "clear Sky" ||
+    forecast?.weather?.description === "Clear Sky" ||
+    // forecast?.weather?.description === "few clouds" ||
+    forecast?.weather?.description === "Few clouds"
   ) {
     imageURL = `./images/clear-sky.png`;
-  } else if (
-    (forecast?.weather?.description === "few clouds") |
-    (forecast?.weather?.description === "Few clouds")
-  ) {
-    imageURL = `./images/few-clouds.png`;
   } else if (
     forecast?.weather?.description === "scattered clouds" ||
     forecast?.weather?.description === "Scattered clouds"
@@ -62,7 +68,7 @@ const ForecastCard = ({ forecastDays, index, forecast }) => {
       borderRadius="lg"
       overflow="hidden"
       bg={boxBackgroundColor}
-      className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px] h-[300px] py-2 rounded"
+      className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px] h-[300px] py-2 rounded  hover:border-sky-500 hover:border-[2px]"
     >
       <Text className="text-center border-b border-[#999] w-4/5 m-auto pb-2">
         {forecastDays[index]}
@@ -72,12 +78,9 @@ const ForecastCard = ({ forecastDays, index, forecast }) => {
         alt={`Weather Icon`}
         className="w-full p-4 h-32 object-cover"
       />
-      <Box p="6">
-        <Heading as="h3" size="xl" mb={2}></Heading>
-        <Text>
-          Temperature ranges: {forecast.app_min_temp} °C to{" "}
-          {forecast.app_max_temp} °C
-        </Text>
+      <Box p="6" className="bg-[red] flex">
+        <Text>{forecast.app_min_temp} °C</Text>
+        <Text>{forecast.app_max_temp} °C</Text>
       </Box>
     </Box>
   );
