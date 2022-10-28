@@ -1,4 +1,4 @@
-import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { Datum } from "../../../utils/interfaces/weatherBit";
 import { TypeDate } from "../Forecast";
@@ -68,7 +68,7 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
       borderRadius="lg"
       overflow="hidden"
       bg={boxBackgroundColor}
-      className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px] h-[300px] py-2 rounded  hover:border-sky-500 hover:border-[2px]"
+      className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px] h-[300px] py-2 rounded  hover:border-sky-500 hover:border-[2px] mb-5 md:mb-0"
     >
       <Text className="text-center border-b border-[#999] w-4/5 m-auto pb-2">
         {forecastDays[index]}
@@ -76,12 +76,18 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
       <Image
         src={imageURL}
         alt={`Weather Icon`}
-        className="w-full p-4 h-32 object-cover"
+        className="w-full p-4 h-32 object-contain"
       />
-      <Box p="6" className="bg-[red] flex">
-        <Text>{forecast.app_min_temp} °C</Text>
-        <Text>{forecast.app_max_temp} °C</Text>
-      </Box>
+      <Flex
+        justifyContent=""
+        alignItems="flex-start"
+        className="w-full h-[172px] text-center"
+      >
+        {/* <Text className="w-full pt-14">{forecast.app_min_temp} °</Text> */}
+        <Text className="w-full pt-10">
+          Max temperature {forecast.app_max_temp} °
+        </Text>
+      </Flex>
     </Box>
   );
 };

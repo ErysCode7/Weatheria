@@ -48,7 +48,7 @@ const Header: NextPage = () => {
     <>
       <Box className="w-full h-20 shadow-sm" bg={bg}>
         <Flex className="items-center justify-between gap-5 w-[90%] md:w-[95%] m-auto h-full">
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Flex alignItems="center" gap={1} className="h-full">
               <ImLocation2 size="20px" />
               <Heading
@@ -62,7 +62,7 @@ const Header: NextPage = () => {
               </Heading>
             </Flex>
           </div>
-          <form onSubmit={handleSubmit} className="w-full md:w-[50%]">
+          <form onSubmit={handleSubmit} className="w-full lg:w-[50%]">
             <InputGroup>
               <InputLeftElement
                 pointerEvents="none"
