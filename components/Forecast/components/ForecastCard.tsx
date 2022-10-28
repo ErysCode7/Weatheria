@@ -64,13 +64,12 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
 
   return (
     <Box
-      borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
       bg={boxBackgroundColor}
-      className="hover:scale-[102%] transition-all duration-300 w-[250px] sm:w-[300px] h-[300px] py-2 rounded  hover:border-sky-500 hover:border-[2px] mb-5 md:mb-0"
+      className="md:hover:scale-[102%] transition-all duration-300 w-[200px] lg:w-full h-[250px] md:h-[300px] py-2 rounded hover:border-sky-500 hover:border-[2px]"
     >
-      <Text className="text-center border-b border-[#999] w-4/5 m-auto pb-2">
+      <Text className="text-center border-b border-[#999] w-4/5 m-auto pb-2 lg:w-full lg:text-xs xl:w-4/5 xl:text-base">
         {forecastDays[index]}
       </Text>
       <Image
@@ -84,9 +83,7 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
         className="w-full h-[172px] text-center"
       >
         {/* <Text className="w-full pt-14">{forecast.app_min_temp} °</Text> */}
-        <Text className="w-full pt-10">
-          Max temperature {forecast.app_max_temp} °
-        </Text>
+        <Text className="w-full pt-8 md:pt-10">{forecast.app_max_temp}°</Text>
       </Flex>
     </Box>
   );

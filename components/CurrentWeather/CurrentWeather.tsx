@@ -67,14 +67,14 @@ const CurrentWeather: NextPage = () => {
         <Box
           overflow="hidden"
           bg={boxBackgroundColor}
-          className="rounded w-full md:w-[300px] h-[420px] md:h-full hover:border-sky-500 hover:border-[2px] hover:scale-[102%] transition-all duration-300 "
+          className="rounded w-full lg:w-[300px] h-[420px] md:h-full hover:border-sky-500 hover:border-[2px] md:hover:scale-[102%] transition-all duration-300 "
         >
           <Image
             src={imageURL}
             alt={`Weather Icon`}
-            className="w-full p-4 h-[250px] md:h-auto object-contain"
+            className="w-full p-4 h-[250px] lg:h-auto object-contain"
           />
-          <Box py="6" px="4">
+          <Box py="6" px="4" className="lg:px-5">
             <Heading as="h3" size="xl" mb={2}>
               {weather?.name}, {weather?.sys?.country}
             </Heading>
@@ -88,8 +88,8 @@ const CurrentWeather: NextPage = () => {
               ))}
               <Text className="pb-8 text-justify">
                 <span className="font-semibold">
-                  {Math.ceil(Number(weather?.main?.temp - 273))} °C and a
-                  humidity of {weather?.main?.humidity}%.
+                  {Math.ceil(Number(weather?.main?.temp - 273))}° C and humidity
+                  of {weather?.main?.humidity}%.
                 </span>
               </Text>
             </Text>

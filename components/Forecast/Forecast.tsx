@@ -1,3 +1,4 @@
+import { Flex } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
@@ -36,7 +37,7 @@ const Forecast: NextPage = () => {
   return (
     <>
       {weekForeCast && (
-        <>
+        <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
           {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
           {weekForeCast?.data
             ?.slice(0, 7)
@@ -48,7 +49,7 @@ const Forecast: NextPage = () => {
                 forecastDays={forecastDays}
               />
             ))}
-        </>
+        </Flex>
       )}
     </>
   );
