@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text, useColorModeValue } from "@chakra-ui/react";
+import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { Datum } from "../../../utils/interfaces/weatherBit";
 import { TypeDate } from "../Forecast";
@@ -44,6 +44,11 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
   ) {
     imageURL = `./images/rain-clouds.png`;
   } else if (
+    forecast?.weather.description === "Thunderstorm with rain" ||
+    forecast?.weather.description === "Thunderstorm with heavy rain"
+  ) {
+    imageURL = `./images/thundercast-clouds.png`;
+  } else if (
     forecast?.weather?.description === "thundercast clouds" ||
     forecast?.weather?.description === "Thundercast clouds"
   ) {
@@ -77,14 +82,11 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
         alt={`Weather Icon`}
         className="w-full p-4 h-32 object-contain"
       />
-      <Flex
-        justifyContent=""
-        alignItems="flex-start"
-        className="w-full h-[172px] text-center"
-      >
+      <Box className="w-full h-[150px] md:h-[172px] text-center">
         {/* <Text className="w-full pt-14">{forecast.app_min_temp} °</Text> */}
-        <Text className="w-full pt-8 md:pt-10">{forecast.app_max_temp}°</Text>
-      </Flex>
+        <Text className="w-full pt-5 md:pt-10">{forecast.app_max_temp}°</Text>
+        <Text>{forecast?.weather?.description}</Text>
+      </Box>
     </Box>
   );
 };

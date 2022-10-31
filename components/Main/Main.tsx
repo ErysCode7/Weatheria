@@ -8,6 +8,7 @@ import {
 } from "../../redux/slices/locationSlice";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
 import Forecast from "../Forecast/Forecast";
+import Sidebar from "../Sidebar/Sidebar";
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ const Main = () => {
         <main className="mt-5 pt-5 pb-10 lg:flex w-[90%] m-auto gap-3 justify-between">
           <CurrentWeather />
           <Forecast />
+          <Sidebar />
         </main>
       )}
     </>

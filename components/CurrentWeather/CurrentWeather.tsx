@@ -4,7 +4,7 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
@@ -58,8 +58,6 @@ const CurrentWeather: NextPage = () => {
   } else {
     imageURL = `./images/clouds.png`;
   }
-
-  console.log(weather);
 
   return (
     <>
