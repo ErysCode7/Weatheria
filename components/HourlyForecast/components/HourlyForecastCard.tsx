@@ -1,6 +1,7 @@
 import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { List } from "../../../utils/interfaces/forecastMap";
+import capitalizeFirstLetter from "../../../helpers/capitalize";
 
 type Props = {
   forecast: List;
@@ -66,10 +67,6 @@ const HourlyForecastCard: NextPage<Props> = ({ hour, index, forecast }) => {
     imageURL = `./images/clouds.png`;
   }
 
-  const capitalizeFirstLetter = (string: string) =>  {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  }
-  
   const description = capitalizeFirstLetter(forecast?.weather[0]?.description);
 
   return (
@@ -77,7 +74,7 @@ const HourlyForecastCard: NextPage<Props> = ({ hour, index, forecast }) => {
       borderRadius="lg"
       overflow="hidden"
       bg={boxBackgroundColor}
-      className="md:hover:scale-[102%] transition-all duration-300 w-[200px] lg:w-full h-[250px] md:h-[300px] py-2 rounded hover:border-sky-500 hover:border-[2px]"
+      className="md:hover:scale-[102%] transition-all duration-300 w-[120px] lg:w-full h-[250px] md:h-[300px] md:w-[200px] py-2 rounded hover:border-sky-500 hover:border-[2px]"
     >
       <Text className="text-center border-b border-[#999] w-4/5 m-auto pb-2 lg:w-full lg:text-xs xl:w-4/5 xl:text-base">
         {hour[index].slice(0, 3) + hour[index].slice(6)}
@@ -92,7 +89,7 @@ const HourlyForecastCard: NextPage<Props> = ({ hour, index, forecast }) => {
         <Text className="w-full pt-5 md:pt-10">
           {Math.ceil(Number(forecast?.main?.temp - 273))}° C
         </Text>
-        <Text>{description}</Text>
+        <Text className="font-bold text-sm">{description}</Text>
       </Box>
     </Box>
   );

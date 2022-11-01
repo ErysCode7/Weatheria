@@ -27,17 +27,22 @@ const HourlyForecast: NextPage = () => {
     <>
       {forecast && (
         <>
-        <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
-          {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
-          {forecast?.list?.slice(0, 7).map((forecast: List, index: number) => (
-            <HourlyForecastCard
-              key={index}
-              forecast={forecast}
-              index={index}
-              hour={hour}
-            />
-          ))}
-        </Flex>
+          <Heading className="text-center lg:text-left">
+            Hourly Forecast
+          </Heading>
+          <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
+            {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
+            {forecast?.list
+              ?.slice(0, 7)
+              .map((forecast: List, index: number) => (
+                <HourlyForecastCard
+                  key={index}
+                  forecast={forecast}
+                  index={index}
+                  hour={hour}
+                />
+              ))}
+          </Flex>
         </>
       )}
     </>

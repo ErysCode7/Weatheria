@@ -4,7 +4,8 @@ import {
   Image,
   Stack,
   Text,
-  useColorModeValue
+  useColorModeValue,
+
 } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
@@ -65,12 +66,12 @@ const CurrentWeather: NextPage = () => {
         <Box
           overflow="hidden"
           bg={boxBackgroundColor}
-          className="rounded w-full lg:w-[300px] h-[420px] md:h-full hover:border-sky-500 hover:border-[2px] md:hover:scale-[102%] transition-all duration-300 "
+          className="rounded w-full h-[420px] hover:border-sky-500 hover:border-[2px] md:hover:scale-[102%] transition-all duration-300 text-center"
         >
           <Image
             src={imageURL}
             alt={`Weather Icon`}
-            className="w-full p-4 h-[250px] lg:h-auto object-contain"
+            className="w-full p-4 h-[250px] object-contain"
           />
           <Box py="6" px="4" className="lg:px-5">
             <Heading as="h3" size="xl" mb={2}>
@@ -84,7 +85,7 @@ const CurrentWeather: NextPage = () => {
                   {weather?.description}
                 </span>
               ))}
-              <Text className="pb-8 text-justify">
+              <Text className="pb-8">
                 <span className="font-semibold">
                   {Math.ceil(Number(weather?.main?.temp - 273))}° C and humidity
                   of {weather?.main?.humidity}%.

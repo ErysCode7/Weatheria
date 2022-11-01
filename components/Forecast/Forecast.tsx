@@ -1,4 +1,4 @@
-import { Flex } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetForecastQuery } from "../../redux/services/weatherMapApi";
@@ -35,17 +35,22 @@ const Forecast: NextPage = () => {
   return (
     <>
       {forecast && (
-        <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
-          {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
-          {forecast?.list?.slice(0, 7).map((forecast: List, index: number) => (
-            <ForecastCard
-              key={index}
-              forecast={forecast}
-              index={index}
-              forecastDays={forecastDays}
-            />
-          ))}
-        </Flex>
+        <>
+          <Heading className="text-center lg:text-left">Weekly Forecast</Heading>
+          <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
+            {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
+            {forecast?.list
+              ?.slice(0, 7)
+              .map((forecast: List, index: number) => (
+                <ForecastCard
+                  key={index}
+                  forecast={forecast}
+                  index={index}
+                  forecastDays={forecastDays}
+                />
+              ))}
+          </Flex>
+        </>
       )}
     </>
   );
