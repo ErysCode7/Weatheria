@@ -1,21 +1,17 @@
 import { Flex } from "@chakra-ui/react";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
-import { useGetSixDayForecastQuery } from "../../redux/services/weatherBitApi";
-import { latitude, longtitude } from "../../redux/slices/locationSlice";
-import { Datum } from "../../utils/interfaces/weatherBit";
+import { useGetForecastQuery } from "../../redux/services/weatherMapApi";
+import { query } from "../../redux/slices/locationSlice";
+import { List } from "../../utils/interfaces/forecastMap";
 import ErrorApi from "../ErrorApi/ErrorApi";
 import ForecastCard from "./components/ForecastCard";
 
 export type TypeDate = string[];
 
 const Forecast: NextPage = () => {
-  const lat = useSelector(latitude);
-  const lon = useSelector(longtitude);
-  const { data: weekForeCast, isError } = useGetSixDayForecastQuery({
-    lat,
-    lon,
-  });
+  const queryData = useSelector(query);
+  const { data: forecast, isError } = useGetForecastQuery(queryData);
 
   const DAYS: TypeDate = [
     "SUNDAY",
@@ -34,21 +30,21 @@ const Forecast: NextPage = () => {
 
   if (isError) return <ErrorApi />;
 
+  console.log(forecast?.list);
+
   return (
     <>
-      {weekForeCast && (
+      {forecast && (
         <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
           {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
-          {weekForeCast?.data
-            ?.slice(0, 7)
-            .map((forecast: Datum, index: number) => (
-              <ForecastCard
-                key={index}
-                forecast={forecast}
-                index={index}
-                forecastDays={forecastDays}
-              />
-            ))}
+          {forecast?.list?.slice(0, 7).map((forecast: List, index: number) => (
+            <ForecastCard
+              key={index}
+              forecast={forecast}
+              index={index}
+              forecastDays={forecastDays}
+            />
+          ))}
         </Flex>
       )}
     </>

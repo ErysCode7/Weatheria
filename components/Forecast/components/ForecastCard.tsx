@@ -1,10 +1,10 @@
 import { Box, Image, Text, useColorModeValue } from "@chakra-ui/react";
 import { NextPage } from "next";
-import { Datum } from "../../../utils/interfaces/weatherBit";
+import { List } from "../../../utils/interfaces/forecastMap";
 import { TypeDate } from "../Forecast";
 
 type Props = {
-  forecast: Datum;
+  forecast: List;
   index: number;
   forecastDays: TypeDate;
 };
@@ -15,52 +15,52 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
   let imageURL;
 
   if (
-    // forecast?.weather?.description === "clear Sky" ||
-    forecast?.weather?.description === "Clear Sky" ||
-    // forecast?.weather?.description === "few clouds" ||
-    forecast?.weather?.description === "Few clouds"
+    // forecast?.weather[0]?.description === "clear Sky" ||
+    forecast?.weather[0]?.description === "Clear Sky" ||
+    // forecast?.weather[0]?.description === "few clouds" ||
+    forecast?.weather[0]?.description === "Few clouds"
   ) {
     imageURL = `./images/clear-sky.png`;
   } else if (
-    forecast?.weather?.description === "scattered clouds" ||
-    forecast?.weather?.description === "Scattered clouds"
+    forecast?.weather[0]?.description === "scattered clouds" ||
+    forecast?.weather[0]?.description === "Scattered clouds"
   ) {
     imageURL = `./images/scattered-clouds.png`;
   } else if (
-    forecast?.weather?.description === "overcast clouds" ||
-    forecast?.weather?.description === "Overcast clouds" ||
-    forecast?.weather?.description === "broken clouds" ||
-    forecast?.weather?.description === "Broken clouds"
+    forecast?.weather[0]?.description === "overcast clouds" ||
+    forecast?.weather[0]?.description === "Overcast clouds" ||
+    forecast?.weather[0]?.description === "broken clouds" ||
+    forecast?.weather[0]?.description === "Broken clouds"
   ) {
     imageURL = `./images/scattered-clouds.png`;
   } else if (
-    forecast?.weather?.description === "light rain" ||
-    forecast?.weather?.description === "Light rain" ||
-    forecast?.weather?.description === "moderate rain" ||
-    forecast?.weather?.description === "Moderate rain" ||
-    forecast?.weather?.description === "heavy rain" ||
-    forecast?.weather?.description === "Heavy rain" ||
-    forecast?.weather.description === "heavy intensity rain"
+    forecast?.weather[0]?.description === "light rain" ||
+    forecast?.weather[0]?.description === "Light rain" ||
+    forecast?.weather[0]?.description === "moderate rain" ||
+    forecast?.weather[0]?.description === "Moderate rain" ||
+    forecast?.weather[0]?.description === "heavy rain" ||
+    forecast?.weather[0]?.description === "Heavy rain" ||
+    forecast?.weather[0]?.description === "heavy intensity rain"
   ) {
     imageURL = `./images/rain-clouds.png`;
   } else if (
-    forecast?.weather.description === "Thunderstorm with rain" ||
-    forecast?.weather.description === "Thunderstorm with heavy rain"
+    forecast?.weather[0]?.description === "Thunderstorm with rain" ||
+    forecast?.weather[0]?.description === "Thunderstorm with heavy rain"
   ) {
     imageURL = `./images/thundercast-clouds.png`;
   } else if (
-    forecast?.weather?.description === "thundercast clouds" ||
-    forecast?.weather?.description === "Thundercast clouds"
+    forecast?.weather[0]?.description === "thundercast clouds" ||
+    forecast?.weather[0]?.description === "Thundercast clouds"
   ) {
     imageURL = `./images/thundercast-clouds.png`;
   } else if (
-    forecast?.weather?.description === "winter" ||
-    forecast?.weather?.description === "Winter"
+    forecast?.weather[0]?.description === "winter" ||
+    forecast?.weather[0]?.description === "Winter"
   ) {
     imageURL = `./images/winter-clouds.png`;
   } else if (
-    forecast?.weather?.description === "mist" ||
-    forecast?.weather?.description === "Mist"
+    forecast?.weather[0]?.description === "mist" ||
+    forecast?.weather[0]?.description === "Mist"
   ) {
     imageURL = `./images/winter-clouds.png`;
   } else {
@@ -84,8 +84,10 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
       />
       <Box className="w-full h-[150px] md:h-[172px] text-center">
         {/* <Text className="w-full pt-14">{forecast.app_min_temp} °</Text> */}
-        <Text className="w-full pt-5 md:pt-10">{forecast.app_max_temp}°</Text>
-        <Text>{forecast?.weather?.description}</Text>
+        <Text className="w-full pt-5 md:pt-10">
+          {Math.ceil(Number(forecast.main.temp - 273))}° C
+        </Text>
+        <Text>{forecast?.weather[0]?.description}</Text>
       </Box>
     </Box>
   );
