@@ -62,11 +62,11 @@ const CurrentWeather: NextPage = () => {
 
   return (
     <>
-      <Stack marginBottom={5}>
+      <Stack marginBottom={5} >
         <Box
           overflow="hidden"
           bg={boxBackgroundColor}
-          className="rounded w-full h-[420px] hover:border-sky-500 hover:border-[2px] md:hover:scale-[102%] transition-all duration-300 text-center"
+          className="rounded w-full xl:w-[320px] h-[420px] hover:border-sky-500 hover:border-[2px] md:hover:scale-[102%] transition-all duration-300 text-center xl:h-full "
         >
           <Image
             src={imageURL}

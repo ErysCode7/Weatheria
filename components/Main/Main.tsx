@@ -26,9 +26,9 @@ const Main = () => {
   return (
     <>
       {weather && (
-        <main className="mt-5 pt-5 pb-10 w-[90%] m-auto gap-3 justify-between">
+        <main className="mt-3 pt-2 pb-10 xl:flex w-[90%] m-auto gap-3 justify-between">
           <CurrentWeather />
-          <Flex direction="column" gap={2}>
+          <Flex direction="column" gap={2} className="w-full lg:flex-[1]">
             <Forecast />
             <HourlyForecast />
           </Flex>

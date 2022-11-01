@@ -35,9 +35,9 @@ const Forecast: NextPage = () => {
   return (
     <>
       {forecast && (
-        <>
-          <Heading className="text-center lg:text-left">Weekly Forecast</Heading>
-          <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
+        < >
+          <Heading className="text-center lg:text-left" fontSize="20px">Weekly Forecast</Heading>
+          <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap ">
             {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
             {forecast?.list
               ?.slice(0, 7)

@@ -27,7 +27,7 @@ const HourlyForecast: NextPage = () => {
     <>
       {forecast && (
         <>
-          <Heading className="text-center lg:text-left">
+          <Heading className="text-center lg:text-left" fontSize="20px">
             Hourly Forecast
           </Heading>
           <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap">
