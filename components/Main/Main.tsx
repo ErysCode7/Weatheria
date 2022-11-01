@@ -8,7 +8,9 @@ import {
   query,
 } from "../../redux/slices/locationSlice";
 import CurrentWeather from "../CurrentWeather/CurrentWeather";
+import Forecast from "../Forecast/Forecast";
 import HourlyForecast from "../HourlyForecast/HourlyForecast";
+
 
 const Main = () => {
   const dispatch = useDispatch();
@@ -27,7 +29,7 @@ const Main = () => {
         <main className="mt-5 pt-5 pb-10 lg:flex w-[90%] m-auto gap-3 justify-between">
           <CurrentWeather />
           <Flex direction="column" gap={5}>
-            {/* <Forecast /> */}
+            <Forecast />
             <HourlyForecast />
           </Flex>
         </main>
