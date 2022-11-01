@@ -1,10 +1,10 @@
 import { Flex, Heading } from "@chakra-ui/react";
+import moment from "moment";
 import { NextPage } from "next";
 import { useSelector } from "react-redux";
 import { useGetForecastQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
 import { List } from "../../utils/interfaces/forecastMap";
-import ErrorApi from "../ErrorApi/ErrorApi";
 import HourlyForecastCard from "./components/HourlyForecastCard";
 
 export type TypeDate = string[];
