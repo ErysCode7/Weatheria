@@ -1,13 +1,6 @@
-import {
-  Box,
-  Heading,
-  Image,
-  Stack,
-  Text,
-  useColorModeValue,
-
-} from "@chakra-ui/react";
+import { Box, Heading, Stack, Text, useColorModeValue } from "@chakra-ui/react";
 import { NextPage } from "next";
+import Image from "next/image";
 import { useSelector } from "react-redux";
 import { useGetWeatherQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
@@ -34,45 +27,50 @@ const CurrentWeather: NextPage = () => {
     weather?.weather[0]?.description === "clear sky" ||
     weather?.weather[0]?.description === "few clouds"
   ) {
-    imageURL = `./images/clear-sky.png`;
+    imageURL = `clear-sky.png`;
   } else if (weather?.weather[0]?.description === "scattered clouds") {
-    imageURL = `./images/scattered-clouds.png`;
+    imageURL = `scattered-clouds.png`;
   } else if (
     weather?.weather[0]?.description === "overcast clouds" ||
     weather?.weather[0]?.description === "broken clouds"
   ) {
-    imageURL = `./images/scattered-clouds.png`;
+    imageURL = `scattered-clouds.png`;
   } else if (
     weather?.weather[0]?.description === "light rain" ||
     weather?.weather[0]?.description === "moderate rain" ||
     weather?.weather[0]?.description === "heavy rain" ||
     weather?.weather[0]?.description === "heavy intensity rain"
   ) {
-    imageURL = `./images/rain-clouds.png`;
+    imageURL = `rain-clouds.png`;
   } else if (weather?.weather[0]?.description === "thundercast clouds") {
-    imageURL = `./images/thundercast-clouds.png`;
+    imageURL = `thundercast-clouds.png`;
   } else if (weather?.weather[0]?.description === "winter") {
-    imageURL = `./images/winter-clouds.png`;
+    imageURL = `winter-clouds.png`;
   } else if (weather?.weather[0]?.description === "mist") {
-    // imageURL = `./images/mist.png`;
-    imageURL = `./images/winter-clouds.png`;
+    // imageURL = `mist.png`;
+    imageURL = `winter-clouds.png`;
   } else {
-    imageURL = `./images/clouds.png`;
+    imageURL = `clouds.png`;
   }
 
   return (
     <>
-      <Stack marginBottom={5} className="xl:h-[570px] 2k:h-[910px]" >
+      <Stack marginBottom={5} className="xl:h-[570px] 2k:h-[910px]">
         <Box
           overflow="hidden"
           bg={boxBackgroundColor}
           className="rounded w-full xl:w-[320px] h-[420px] hover:border-sky-500 hover:border-[2px] md:hover:scale-[102%] transition-all duration-300 text-center xl:h-full "
         >
-          <Image
-            src={imageURL}
-            alt={`Weather Icon`}
-            className="w-full p-4 h-[250px] 2k:h-[550px] object-contain"
-          />
+          <div className="w-full p-4 h-[250px] 2k:h-[550px] object-contain relative">
+            <Image
+              src={`/images/${imageURL}`}
+              alt={`Weather Icon`}
+              layout="fill"
+              objectFit="contain"
+              priority
+            />
+          </div>
+
           <Box py="6" px="4" className="lg:px-5">
             <Heading as="h2" size="xl" mb={2} className="2k:text-2xl">
               {weather?.name}, {weather?.sys?.country}
