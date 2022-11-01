@@ -4,7 +4,6 @@ import { useSelector } from "react-redux";
 import { useGetForecastQuery } from "../../redux/services/weatherMapApi";
 import { query } from "../../redux/slices/locationSlice";
 import { List } from "../../utils/interfaces/forecastMap";
-import ErrorApi from "../ErrorApi/ErrorApi";
 import ForecastCard from "./components/ForecastCard";
 
 export type TypeDate = string[];
@@ -28,15 +27,13 @@ const Forecast: NextPage = () => {
     DAYS.slice(0, dayInWeek)
   );
 
-  if (isError) return <ErrorApi />;
-
-  console.log(forecast?.list);
-
   return (
     <>
       {forecast && (
-        < >
-          <Heading className="text-center lg:text-left" fontSize="20px">Weekly Forecast</Heading>
+        <>
+          <Heading className="text-center lg:text-left" fontSize="20px">
+            Weekly Forecast
+          </Heading>
           <Flex gap="4" className="justify-center flex-wrap lg:flex-nowrap ">
             {/* <ChartSample date={date} minTemp={minTemp} maxTemp={maxTemp} /> */}
             {forecast?.list

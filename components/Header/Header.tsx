@@ -31,7 +31,7 @@ const Header: NextPage = () => {
   //dispatch the action on mount
   useEffect(() => {
     dispatch(getQueryData(search));
-  }, []);
+  }, [search]);
 
   //handle search
   const handleSubmit = (e: React.FormEvent) => {

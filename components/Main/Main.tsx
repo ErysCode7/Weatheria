@@ -11,7 +11,6 @@ import CurrentWeather from "../CurrentWeather/CurrentWeather";
 import Forecast from "../Forecast/Forecast";
 import HourlyForecast from "../HourlyForecast/HourlyForecast";
 
-
 const Main = () => {
   const dispatch = useDispatch();
   const queryData = useSelector(query);
