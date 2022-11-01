@@ -62,7 +62,7 @@ const CurrentWeather: NextPage = () => {
 
   return (
     <>
-      <Stack marginBottom={5} >
+      <Stack marginBottom={5} className="xl:h-[570px] 2k:h-[910px]" >
         <Box
           overflow="hidden"
           bg={boxBackgroundColor}
@@ -71,13 +71,13 @@ const CurrentWeather: NextPage = () => {
           <Image
             src={imageURL}
             alt={`Weather Icon`}
-            className="w-full p-4 h-[250px] object-contain"
+            className="w-full p-4 h-[250px] 2k:h-[550px] object-contain"
           />
           <Box py="6" px="4" className="lg:px-5">
-            <Heading as="h3" size="xl" mb={2}>
+            <Heading as="h2" size="xl" mb={2} className="2k:text-2xl">
               {weather?.name}, {weather?.sys?.country}
             </Heading>
-            <Text className="text-sm md:text-[15px] md:leading-6">
+            <Text className="text-sm md:text-[15px] md:leading-6 2k:text-lg">
               The weather condition in {weather?.name}, {weather?.sys?.country}{" "}
               is described as {""}
               {weather?.weather?.map((weather: WeatherElement) => (
