@@ -21,8 +21,6 @@ const HourlyForecast: NextPage = () => {
     return moment(hour, "HH:mm:ss").format("h:mm:ss A");
   });
 
-
-
   return (
     <>
       {forecast && (

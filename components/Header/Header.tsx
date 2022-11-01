@@ -66,8 +66,9 @@ const Header: NextPage = () => {
             <InputGroup>
               <InputLeftElement
                 pointerEvents="none"
-                children={<BiSearch color="gray.300" />}
-              />
+              >
+              <BiSearch color="gray.300" />
+              </InputLeftElement>
               <Input
                 type="text"
                 placeholder="Search city"
