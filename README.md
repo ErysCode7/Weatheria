@@ -1,34 +1,58 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Weatheria
 
-## Getting Started
+This is a Weatheria a weather application that keep track of the weather around the world using RapidAPI and NextJS, Redux Toolkit, TailwindCSS, Chakra UI and openweatherAPI.
 
-First, run the development server:
+## Table of contents
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+- [Screenshot](#screenshot)
+- [Links](#links)
+- [Built with](#built-with)
+- [Author](#author)
+- [Acknowledgments](#acknowledgments)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Screenshot
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![](./screenshots/Darkmode.JPG)
+![](./screenshots/Lightmode.JPG)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+### Links
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Solution URL: [https://github.com/ErysCode7/weatheria](https://github.com/ErysCode7/weatheria)
+- Live Site URL: [https://weatheria-taupe.vercel.app/](https://weatheria-taupe.vercel.app/)
 
-## Learn More
+1. Clone the repo
 
-To learn more about Next.js, take a look at the following resources:
+   ```sh
+   git clone git@github.com:ErysCode7/weatheria.git
+   ```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+2. Install NPM packages
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```sh
+   npm install
+   ```
 
-## Deploy on Vercel
+3. Run app
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```sh
+   npm start
+   ```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+### Built with
+
+- [Next.js](https://nextjs.org/) - JS library
+- [Chakra-UI](https://chakra-ui.com/) - User interface component
+- [Redux Toolkit Query](https://redux-toolkit.js.org/rtk-query/overview) - RTK Query is a powerful data fetching and caching tool. It is designed to simplify common cases for loading data in a web application,
+- [TailwindCSS](https://tailwindcss.com/) - CSS Framework
+- [RapidAPI](https://rapidapi.com/hub) - API Hub
+
+## Author
+
+- Facebook - [Erys Mozo](https://web.facebook.com/erys.mozo/)
+- Instagram - [\_erysmozo](https://www.instagram.com/_erysmozo/)
+- Frontend Mentor - [ErysCode7](https://www.frontendmentor.io/profile/ErysCode7)
+- LinkedIn - [Erys Mozo](https://www.linkedin.com/in/erys-mozo-280190230/)
+
+## Acknowledgments
+
+I acknowledge myself that I can build these amazing things. Hoping to improve and learn better.
