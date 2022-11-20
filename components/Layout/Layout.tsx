@@ -27,10 +27,11 @@ const Layout: NextPage<Props> = ({ children }) => {
             content="width=device-width, initial-scale=1.0"
           />
           <title>Weatheria</title>
-          <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.js"
-            defer
-          ></script>
+          <link
+            rel="shortcut icon"
+            href="/images/thundercast-clouds.png"
+            type="image/x-icon"
+          />
         </Head>
         <div>{children}</div>
       </>

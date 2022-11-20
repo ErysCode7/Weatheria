@@ -12,15 +12,6 @@ const CurrentWeather: NextPage = () => {
 
   const boxBackgroundColor = useColorModeValue("#ffffff", "#222222");
 
-  //01d = clear sky
-  //02n = few clouds
-  //03d = scattered clouds
-  //04n = overcast clouds || broken clouds
-  //10n = light rain || moderate || heavy rain
-  //11d = thundercast clouds
-  //13d = winter
-  //50n = mist
-
   let imageURL;
 
   if (
