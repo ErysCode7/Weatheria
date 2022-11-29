@@ -29,7 +29,7 @@ const Layout: NextPage<Props> = ({ children }) => {
           <title>Weatheria</title>
           <link
             rel="shortcut icon"
-            href="/images/thundercast-clouds.png"
+            href="/images/weather/thundercast-clouds.png"
             type="image/x-icon"
           />
         </Head>

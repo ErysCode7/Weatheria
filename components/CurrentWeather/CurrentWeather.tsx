@@ -40,6 +40,11 @@ const CurrentWeather: NextPage = () => {
   } else if (weather?.weather[0]?.description === "mist") {
     // imageURL = `mist.png`;
     imageURL = `winter-clouds.png`;
+  } else if (
+    weather?.weather[0]?.description === "light snow" ||
+    weather?.weather[0]?.description === "Light snow"
+  ) {
+    imageURL = `snow.png`;
   } else {
     imageURL = `clouds.png`;
   }
@@ -54,7 +59,7 @@ const CurrentWeather: NextPage = () => {
         >
           <div className="w-full p-4 h-[250px] 2k:h-[550px] object-contain relative">
             <Image
-              src={`/images/${imageURL}`}
+              src={`/images/weather/${imageURL}`}
               alt={`Weather Icon`}
               layout="fill"
               objectFit="contain"

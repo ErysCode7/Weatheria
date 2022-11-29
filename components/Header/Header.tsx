@@ -26,7 +26,7 @@ const Header: NextPage = () => {
 
   const { colorMode, toggleColorMode } = useColorMode();
 
-  const [search, setSearch] = useState("Pittsburgh");
+  const [search, setSearch] = useState("Seoul");
 
   //dispatch the action on mount
   useEffect(() => {
@@ -64,10 +64,8 @@ const Header: NextPage = () => {
           </div>
           <form onSubmit={handleSubmit} className="w-full lg:w-[50%]">
             <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-              >
-              <BiSearch color="gray.300" />
+              <InputLeftElement pointerEvents="none">
+                <BiSearch color="gray.300" />
               </InputLeftElement>
               <Input
                 type="text"

@@ -65,6 +65,11 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
     forecast?.weather[0]?.description === "Mist"
   ) {
     imageURL = `winter-clouds.png`;
+  } else if (
+    forecast?.weather[0]?.description === "light snow" ||
+    forecast?.weather[0]?.description === "Light snow"
+  ) {
+    imageURL = `snow.png`;
   } else {
     imageURL = `clouds.png`;
   }
@@ -83,7 +88,7 @@ const ForecastCard: NextPage<Props> = ({ forecastDays, index, forecast }) => {
       </Text>
       <div className="w-full p-4 h-[100px] 2k:h-[200px] object-contain relative mt-2">
         <Image
-          src={`/images/${imageURL}`}
+          src={`/images/weather/${imageURL}`}
           alt={`Weather Icon`}
           layout="fill"
           objectFit="contain"

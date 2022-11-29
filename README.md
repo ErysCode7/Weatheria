@@ -53,6 +53,3 @@ Weatheria a weather application that keep track of the weather around the world 
 - Instagram - [\_erysmozo](https://www.instagram.com/_erysmozo/)
 - Frontend Mentor - [ErysCode7](https://www.frontendmentor.io/profile/ErysCode7)
 - LinkedIn - [Erys Mozo](https://www.linkedin.com/in/erys-mozo-280190230/)
-
-## Acknowledgments
-I acknowledge myself that I can build these amazing things. Hoping to improve and learn better.

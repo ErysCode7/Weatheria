@@ -10,9 +10,7 @@ module.exports = {
         transparent: "rgba(0,0,0,0.3)",
       },
       backgroundImage: {
-        leaves: "url(/images/leaves.jpeg)",
-        clouds: "url(/images/clouds.jpg)",
-        thunder: "url(/images/thunder.jpg)",
+        // leaves: "url(/images/leaves.jpeg)",
       },
       screens: {
         sm: "640px",
