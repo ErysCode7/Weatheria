@@ -8,7 +8,7 @@ Weatheria a weather application that keep track of the weather around the world 
 - [Links](#links)
 - [Built with](#built-with)
 - [Author](#author)
-- [Acknowledgments](#acknowledgments)
+
 
 ### Screenshot
 
